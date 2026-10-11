@@ -45,7 +45,8 @@ Build on an Apple Silicon Mac with macOS 14+, Xcode Command Line Tools and Pytho
 - [Architecture, storage and recovery](docs/ARCHITECTURE.md)
 - [Build and tests](docs/BUILD.md)
 - [Troubleshooting](docs/TROUBLESHOOTING.md)
-- [Release notes](CHANGELOG.md)
+- [Release 1.0 — English / Deutsch](docs/RELEASE-1.0.md)
+- [Changelog](CHANGELOG.md)
 - [Release language policy and process](docs/RELEASING.md)
 - [Security reporting](SECURITY.md)
 

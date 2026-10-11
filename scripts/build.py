@@ -16,6 +16,7 @@ with tempfile.TemporaryDirectory(prefix='clamav-build-') as tmp:
  shutil.copyfile(ROOT/'docs/Instructions-English.txt',res/'Anleitung.txt')
  shutil.copyfile(ROOT/'docs/Instructions-English.txt',package/'Instructions-English.txt')
  shutil.copyfile(ROOT/'docs/Anleitung-Deutsch.txt',package/'Anleitung-Deutsch.txt')
+ shutil.copyfile(ROOT/('docs/RELEASE-'+VERSION+'.md'),package/('RELEASE-'+VERSION+'.md'))
  info={'CFBundleExecutable':'ClamAVInstaller','CFBundleIdentifier':'local.clamav.automatik.installer','CFBundleName':'ClamAV Installer','CFBundleDisplayName':'ClamAV Installer','CFBundlePackageType':'APPL','CFBundleShortVersionString':VERSION,'CFBundleVersion':'1','LSMinimumSystemVersion':'14.0','NSHighResolutionCapable':True,'CFBundleIconFile':'AppIcon','LSApplicationCategoryType':'public.app-category.utilities'}
  (app/'Contents/Info.plist').write_bytes(plistlib.dumps(info))
  run('xcrun','swiftc','-swift-version','5','-target','arm64-apple-macosx14.0','-module-cache-path',cache,'-O','-framework','AppKit',*[GUI/n for n in ['Localization.swift','LivePipeReader.swift','InputPromptState.swift','ScanSnapshot.swift','main.swift']],'-o',mac/'ClamAVInstaller')
