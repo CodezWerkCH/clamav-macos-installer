@@ -1,0 +1,34 @@
+ClamAV Installer
+English operating instructions
+
+ Installation and operation
+
+Requires Apple Silicon, macOS 14+, Internet access and a macOS version supported by Homebrew. Download the release ZIP, extract it and open the app. Choose Install / update. Missing Homebrew is installed through its official installer; the current stable homebrew/core/clamav formula is then installed or upgraded. The automatic later updates refresh signatures, not the engine itself.
+
+This app is ad-hoc signed without a certificate and is not notarized by Apple. If macOS blocks first launch, review the source and use the system's explicit Open Anyway option only if you trust it. Do not disable Gatekeeper globally.
+
+ Required manual permission
+
+Open System Settings → Privacy & Security → Full Disk Access. Enable /bin/bash and the clamdscan path shown by the app, normally /opt/homebrew/opt/clamav/bin/clamdscan. Reload background jobs and run a test scan. The app also displays the resolved version-specific path. Recheck permissions after upgrades if access errors appear.
+
+TCC permission cannot be granted silently. The scanner uses clamdscan --fdpass over a private Unix socket; granting access only to Terminal or only to clamd is insufficient for this background job. Full Disk Access for Bash also applies to other scripts started through it.
+
+ Schedule and results
+
+Daily scan at 19:00 of Downloads, Desktop and Documents; signature updates every two hours. These are per-user launchd jobs and require a logged-in session. Sleep/logout may defer runs. Starting a scan requests the job; it does not mean the scan is complete. Read the current status and log for completion, detections, errors and failed quarantine moves.
+
+Logs remain under ~/Library/Logs/ClamAV-Automatik; application data and per-scan quarantine live under ~/.clamav-automatik. Quarantine is not automatically deleted. Restore only after reviewing a detection, without overwriting an existing destination file.
+
+The primary macOS language is used when supported (German, English, French, Italian, Portuguese, Spanish), otherwise English. Original technical output is not necessarily translated.
+
+ Uninstall and recovery
+
+Remove the managed automation with or without the optional Homebrew package. Managed data is archived in a unique folder under ~/.clamav-automatik-archiv; logs are retained. Homebrew itself and unrelated configuration are left in place.
+
+Unregistered package remnants are automatically archived only after checking jobs, processes, dependencies, filesystem structure and package links. Each successful move is verified against a SHA-256 manifest. Existing archives are not overwritten. Registered/in-use packages, unreadable contents or cross-filesystem moves fail safely; no recursive forced deletion is used. The package-only retry action can repair narrowly recognized protected program-directory permissions with administrator approval.
+
+Full Disk Access entries remain in macOS. The app opens the relevant settings after uninstall; remove permissions you no longer need manually.
+
+ Limits
+
+This is scheduled antivirus scanning, not real-time protection. The configured limits include 256 MB per file and 512 MB of expanded data per container. Encrypted, inaccessible or cloud-only files may remain unscanned. No detections is not a guarantee that all content was scanned or is safe.

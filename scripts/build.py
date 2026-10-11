@@ -13,7 +13,8 @@ with tempfile.TemporaryDirectory(prefix='clamav-build-') as tmp:
  shutil.copyfile(ROOT/'assets/AppIcon.icns',res/'AppIcon.icns')
  shutil.copytree(GUI/'i18n',res/'i18n')
  shutil.copyfile(ROOT/'src/backend/install.sh',res/'install.sh')
- shutil.copyfile(ROOT/'docs/Anleitung-Deutsch.txt',res/'Anleitung.txt')
+ shutil.copyfile(ROOT/'docs/Instructions-English.txt',res/'Anleitung.txt')
+ shutil.copyfile(ROOT/'docs/Instructions-English.txt',package/'Instructions-English.txt')
  shutil.copyfile(ROOT/'docs/Anleitung-Deutsch.txt',package/'Anleitung-Deutsch.txt')
  info={'CFBundleExecutable':'ClamAVInstaller','CFBundleIdentifier':'local.clamav.automatik.installer','CFBundleName':'ClamAV Installer','CFBundleDisplayName':'ClamAV Installer','CFBundlePackageType':'APPL','CFBundleShortVersionString':VERSION,'CFBundleVersion':'1','LSMinimumSystemVersion':'14.0','NSHighResolutionCapable':True,'CFBundleIconFile':'AppIcon','LSApplicationCategoryType':'public.app-category.utilities'}
  (app/'Contents/Info.plist').write_bytes(plistlib.dumps(info))

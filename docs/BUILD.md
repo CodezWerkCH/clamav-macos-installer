@@ -33,3 +33,7 @@ The default build is ad-hoc signed, without a Developer ID certificate or notari
 The icon asset is included under `assets/`; its drawing source is `src/gui/make-icon.swift`. It is independent of previous release packages.
 
 For source-only and complete bundles, run `python3 scripts/package.py` after the build. The complete ZIP includes the ready-to-open app, all source files and documentation. `dist/SHA256SUMS.txt` covers all three ZIPs. Local Git history and generated output are excluded from the source bundle.
+
+## Release languages
+
+The default project documentation is English. Future releases use both English and German release notes and include `Instructions-English.txt` and `Anleitung-Deutsch.txt` in the app archive. Follow [RELEASING.md](RELEASING.md) and use the [release template](../.github/RELEASE_TEMPLATE.md).

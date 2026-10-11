@@ -2,28 +2,28 @@
 
 Native **Apple Silicon / macOS 14+** GUI for installing and managing ClamAV through Homebrew. First public release: **1.0**.
 
-**[Download version 1.0](https://github.com/CodezWerkCH/clamav-macos-installer/releases/tag/v1.0)** · [Deutsche Anleitung](docs/INSTALLATION-DE.md) · [English guide](docs/INSTALLATION-EN.md) · [Build and tests](docs/BUILD.md) · [Architecture](docs/ARCHITECTURE.md)
+**[Download version 1.0](https://github.com/CodezWerkCH/clamav-macos-installer/releases/tag/v1.0)** · [English guide](docs/INSTALLATION-EN.md) · [German guide](docs/INSTALLATION-DE.md) · [Deutsche Projektübersicht](README.de.md) · [Build and tests](docs/BUILD.md) · [Architecture](docs/ARCHITECTURE.md)
 
-## Funktionen
+## Features
 
-- Homebrew bei Bedarf installieren; Paketdaten aktualisieren und die neueste dort verfügbare stabile ClamAV-Version installieren/aktualisieren.
-- Privater `clamd`-Unix-Socket; automatische Signaturupdates alle zwei Stunden.
-- Täglicher Scan um 19:00 Uhr für Downloads, Schreibtisch und Dokumente, zusätzlich manuell startbar.
-- Scanstatus, echte Laufzeit, Protokolle und macOS-Mitteilungen.
-- Getrennte Quarantäne pro Scan; Namenskonflikte werden behandelt, Fehler bleiben sichtbar.
-- Wiederholbare Einrichtung mit Sicherungen; sichere Deinstallation und geprüfte Archivierung unbenutzter beschädigter Paketreste.
-- Deutsch, Englisch, Französisch, Italienisch, Portugiesisch und Spanisch. Start in der primären Systemsprache, sonst Englisch.
+- Install Homebrew if needed, refresh package metadata and install or upgrade the latest stable ClamAV version available through Homebrew.
+- Private `clamd` Unix socket and automatic signature updates every two hours.
+- Daily 19:00 scan of Downloads, Desktop and Documents, with on-demand scanning.
+- Scan status, actual elapsed time, logs and macOS notifications.
+- Separate quarantine for each scan, with filename collision handling and visible errors.
+- Repeatable setup with backups, safe uninstall and verified archival of unused damaged package remnants.
+- German, English, French, Italian, Portuguese and Spanish. Uses the primary system language when supported, otherwise English.
 
-## Schnellstart
+## Quick start
 
-1. Unter **Releases** die Datei `ClamAV-Installer-1.0-Apple-Silicon.zip` laden und entpacken.
-2. `ClamAV Installer.app` öffnen und **Installieren / aktualisieren** wählen.
-3. Den erforderlichen **Festplattenvollzugriff manuell** erlauben. Die App zeigt die genauen Programme und den nächsten Schritt; siehe [Anleitung](docs/INSTALLATION-DE.md).
-4. Hintergrundjobs neu laden, einen Scan starten und den Abschluss im Status/Protokoll kontrollieren.
+1. Download `ClamAV-Installer-1.0-Apple-Silicon.zip` from **Releases** and extract it.
+2. Open `ClamAV Installer.app` and choose **Install / update**.
+3. Grant the required **Full Disk Access manually**. The app shows the exact programs and next steps; see the [installation guide](docs/INSTALLATION-EN.md).
+4. Reload background jobs, start a scan and check the status/log for completion.
 
-Die App ist **ad-hoc signiert, ohne Zertifikat, und nicht von Apple notarisiert**. macOS kann deshalb beim ersten Start eine Bestätigung unter *Datenschutz & Sicherheit → Dennoch öffnen* verlangen. Nur verwenden, wenn du Quelle und Inhalt vertraust.
+The app is **ad-hoc signed without a certificate and is not notarized by Apple**. On first launch, macOS may require confirmation under *Privacy & Security → Open Anyway*. Only proceed if you trust the source and contents.
 
-ClamAV ist hier ein geplanter Scanner, **kein Echtzeitschutz**. Es gelten Größen-/Archivlimits; verschlüsselte, nicht lokal verfügbare oder nicht lesbare Dateien können ungeprüft bleiben. Kein Fund bedeutet keine Sicherheitsgarantie.
+ClamAV is a scheduled scanner here, **not real-time protection**. File/archive size limits apply; encrypted, unavailable or unreadable files may remain unscanned. No detections is not a safety guarantee.
 
 ## Source and development
 
@@ -40,12 +40,13 @@ Build on an Apple Silicon Mac with macOS 14+, Xcode Command Line Tools and Pytho
 
 ## Documentation
 
-- [Installation, permissions, updates and uninstall (Deutsch)](docs/INSTALLATION-DE.md)
-- [Installation and operation (English)](docs/INSTALLATION-EN.md)
+- [Installation, permissions, updates and uninstall (English)](docs/INSTALLATION-EN.md)
+- [Installation and operation (German)](docs/INSTALLATION-DE.md)
 - [Architecture, storage and recovery](docs/ARCHITECTURE.md)
 - [Build and tests](docs/BUILD.md)
 - [Troubleshooting](docs/TROUBLESHOOTING.md)
 - [Release notes](CHANGELOG.md)
+- [Release language policy and process](docs/RELEASING.md)
 - [Security reporting](SECURITY.md)
 
 Independent project; not an official ClamAV, Homebrew or Apple product. Their names and upstream software remain the property of their respective owners. Project code: [MIT License](LICENSE).
