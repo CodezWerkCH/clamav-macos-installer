@@ -6,3 +6,5 @@
 - Never claim notarization or certificate signing for an ad-hoc build. Full Disk Access is always a manual macOS step.
 - Preserve logs, quarantine and archives. Do not introduce forced recursive removal of package remnants.
 - Run isolated tests for runtime changes and the build/bundle checks for app changes. Do not run a real install/uninstall as a unit test.
+
+- Release notes have one canonical source: `docs/RELEASE-VERSION.md`. Commit both complete language sections before tagging. Use the automated workflow; do not hand-copy notes or overwrite published versions. Run `scripts/test_release.py` for release tooling changes.

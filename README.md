@@ -51,3 +51,5 @@ Build on an Apple Silicon Mac with macOS 14+, Xcode Command Line Tools and Pytho
 - [Security reporting](SECURITY.md)
 
 Independent project; not an official ClamAV, Homebrew or Apple product. Their names and upstream software remain the property of their respective owners. Project code: [MIT License](LICENSE).
+
+Future version-tag pushes automatically publish the English/German notes from `docs/RELEASE-VERSION.md` and verify the identical text in all packages. See [the release workflow](docs/RELEASING.md).

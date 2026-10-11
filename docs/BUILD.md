@@ -39,3 +39,5 @@ For source-only and complete bundles, run `python3 scripts/package.py` after the
 The default project documentation is English. Future releases use both English and German release notes and include `Instructions-English.txt` and `Anleitung-Deutsch.txt` in the app archive. Follow [RELEASING.md](RELEASING.md) and use the [release template](../.github/RELEASE_TEMPLATE.md).
 
 The app and complete archives also include `RELEASE-VERSION.md` at the top level. The source archive includes the identical bilingual text under `docs/`. Keep this file synchronized with the published GitHub release description.
+
+Before building, run `python3 scripts/test_release.py` and `python3 scripts/release_notes.py`. Build and packaging reject missing bilingual notes; packaging also rejects stale app documentation. Run `python3 scripts/release_notes.py --packages` to verify all ZIPs and checksums. Version-tag pushes run the complete workflow described in [RELEASING.md](RELEASING.md).

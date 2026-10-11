@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """Build the complete ARM64 app from this checkout. Does not install ClamAV."""
+from release_notes import notes
 from pathlib import Path
 import hashlib, json, plistlib, shutil, subprocess, tempfile
 ROOT=Path(__file__).resolve().parents[1]
 GUI=ROOT/'src/gui'; OUT=ROOT/'dist'; OUT.mkdir(exist_ok=True)
-VERSION=(ROOT/'VERSION').read_text().strip()
+VERSION, NOTES_PATH, _ = notes(ROOT)
 def run(*args): subprocess.run([str(a) for a in args],check=True)
 with tempfile.TemporaryDirectory(prefix='clamav-build-') as tmp:
  stage=Path(tmp).resolve(); package=stage/'package';package.mkdir()
